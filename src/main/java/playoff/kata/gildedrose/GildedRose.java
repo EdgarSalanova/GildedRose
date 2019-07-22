@@ -7,7 +7,7 @@ class GildedRose {
 	private static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
 	private static final int GOOD_QUALITY = 50;
 	private static final int GOOD_SELL_IN = 11;
-	private static final int NORMAL_SELL_IN = 6;
+	private static final int AVERAGE_SELL_IN = 6;
 	private static final int BAD_SELL_IN = 0;
 	
     Item[] items;
@@ -24,18 +24,13 @@ class GildedRose {
                 }
             } else {
             	//need to increase backstage 3 times
-            	//addQuality(item);
-                if (item.quality < 50) {
-                    item.quality = item.quality + 1;
-
-                    if (item.name.equals(BACKSTAGE)) {
-                        if (item.sellIn < 11) {
-                        	item.quality = item.quality + 1;
-                        }
-
-                        if (item.sellIn < 6) {
-                        	item.quality = item.quality + 1;
-                        }
+            	addQuality(item);
+                if (item.name.equals(BACKSTAGE)) {
+                    if (item.sellIn < GOOD_SELL_IN) {
+                    	addQuality(item);
+                    }
+                    if (item.sellIn < AVERAGE_SELL_IN) {
+                    	addQuality(item);
                     }
                 }
             }
@@ -56,17 +51,16 @@ class GildedRose {
                         item.quality = item.quality - item.quality;
                     }
                 } else {
-                    if (item.quality < 50) {
-                        item.quality = item.quality + 1;
-                    }
+                	addQuality(item);
                 }
             }
         } //end for
     } // end updateQ
     
-//    public void addQuality(Item item) {
-//    	if (item.quality < GOOD_QUALITY) {
-//    		item.quality += 1;
-//    	}
-//    }
+    public void addQuality(Item item) {
+    	if (item.quality < GOOD_QUALITY) {
+    		item.quality += 1;
+    	}
+    }
+    
 }
