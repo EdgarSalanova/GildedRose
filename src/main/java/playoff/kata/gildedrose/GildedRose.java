@@ -6,6 +6,7 @@ class GildedRose {
 	private static final String BACKSTAGE = "Backstage passes to a TAFKAL80ETC concert";
 	private static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
 	private static final int GOOD_QUALITY = 50;
+	private static final int BAD_QUALITY = 0;
 	private static final int GOOD_SELL_IN = 11;
 	private static final int AVERAGE_SELL_IN = 6;
 	private static final int BAD_SELL_IN = 0;
@@ -19,8 +20,8 @@ class GildedRose {
     public void updateQuality() {
         for (Item item : items) {
             if (!item.name.equals(BRIE) && !item.name.equals(BACKSTAGE)) {
-                if (item.quality > 0 && !item.name.equals(SULFURAS)) {
-                	item.quality = item.quality - 1;
+                if (!item.name.equals(SULFURAS)) {
+                	reduceQuality(item);
                 }
             } else {
             	//need to increase backstage 3 times
@@ -44,7 +45,7 @@ class GildedRose {
                     if (!item.name.equals(BACKSTAGE)) {
                         if (item.quality > 0) {
                             if (!item.name.equals(SULFURAS)) {
-                                item.quality = item.quality - 1;
+                            	reduceQuality(item);
                             }
                         }
                     } else {
@@ -60,6 +61,12 @@ class GildedRose {
     public void addQuality(Item item) {
     	if (item.quality < GOOD_QUALITY) {
     		item.quality += 1;
+    	}
+    }
+    
+    public void reduceQuality(Item item) {
+    	if (item.quality > BAD_QUALITY) {
+    		item.quality -= 1;
     	}
     }
     
