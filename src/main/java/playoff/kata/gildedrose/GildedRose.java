@@ -30,7 +30,7 @@ class GildedRose {
         	if (item.name.equals(BRIE)) {
         		addQuality(item);
         		reduceSellIn(item);
-        		 if (item.sellIn < 0) {
+        		 if (item.sellIn < BAD_SELL_IN) {
         			 addQuality(item);
         		 }
         	}
@@ -49,7 +49,7 @@ class GildedRose {
                 }
             }
         } //end for
-    } // end updateQ
+    }
     
     public void addQuality(Item item) {
     	if (item.quality < GOOD_QUALITY) {
