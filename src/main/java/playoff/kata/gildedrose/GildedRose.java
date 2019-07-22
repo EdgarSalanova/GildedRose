@@ -19,39 +19,33 @@ class GildedRose {
 
     public void updateQuality() {
         for (Item item : items) {
-            if (!item.name.equals(BRIE) && !item.name.equals(BACKSTAGE)) {
-                if (!item.name.equals(SULFURAS)) {
-                	reduceQuality(item);
+        	if (!item.name.equals(BRIE) && !item.name.equals(BACKSTAGE) && !item.name.equals(SULFURAS)) {
+        		reduceSellIn(item);
+        		reduceQuality(item);
+        		if (item.sellIn < BAD_SELL_IN) {
+        			reduceQuality(item);
                 }
-            } else {
-            	addQuality(item);
-                if (item.name.equals(BACKSTAGE)) {
-                    if (item.sellIn < GOOD_SELL_IN) {
-                    	addQuality(item);
-                    }
-                    if (item.sellIn < AVERAGE_SELL_IN) {
-                    	addQuality(item);
-                    }
-                }
-            }
-
-            if (!item.name.equals(SULFURAS)) {
-                reduceSellIn(item);
-            }
-
-            if (item.sellIn < 0) {
-                if (!item.name.equals(BRIE)) {
-                    if (!item.name.equals(BACKSTAGE)) {
-                        if (item.quality > 0) {
-                            if (!item.name.equals(SULFURAS)) {
-                            	reduceQuality(item);
-                            }
-                        }
-                    } else {
-                    	resetQuality(item);
-                    }
-                } else {
+        	}
+        	
+        	if (item.name.equals(BRIE)) {
+        		addQuality(item);
+        		reduceSellIn(item);
+        		 if (item.sellIn < 0) {
+        			 addQuality(item);
+        		 }
+        	}
+        	
+        	if (item.name.equals(BACKSTAGE)) {
+        		addQuality(item);
+                if (item.sellIn < GOOD_SELL_IN) {
                 	addQuality(item);
+                }
+                if (item.sellIn < AVERAGE_SELL_IN) {
+                	addQuality(item);
+                }
+                reduceSellIn(item);
+                if (item.sellIn < BAD_SELL_IN) {
+                	resetQuality(item);
                 }
             }
         } //end for
