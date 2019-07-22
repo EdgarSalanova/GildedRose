@@ -24,7 +24,6 @@ class GildedRose {
                 	reduceQuality(item);
                 }
             } else {
-            	//need to increase backstage 3 times
             	addQuality(item);
                 if (item.name.equals(BACKSTAGE)) {
                     if (item.sellIn < GOOD_SELL_IN) {
@@ -37,7 +36,7 @@ class GildedRose {
             }
 
             if (!item.name.equals(SULFURAS)) {
-                item.sellIn = item.sellIn - 1;
+                reduceSellIn(item);
             }
 
             if (item.sellIn < 0) {
@@ -49,7 +48,7 @@ class GildedRose {
                             }
                         }
                     } else {
-                        item.quality = item.quality - item.quality;
+                    	resetQuality(item);
                     }
                 } else {
                 	addQuality(item);
@@ -68,6 +67,14 @@ class GildedRose {
     	if (item.quality > BAD_QUALITY) {
     		item.quality -= 1;
     	}
+    }
+    
+    public void reduceSellIn(Item item) {
+    	item.sellIn -= 1;
+    }
+    
+    public void resetQuality(Item item) {
+    	item.quality = 0;
     }
     
 }
