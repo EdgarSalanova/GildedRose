@@ -1,17 +1,16 @@
 package playoff.kata.gildedrose;
 
-class Backstage extends Item {
+class Backstage extends Item implements itemUpdater{
 
 	private static final int GOOD_SELL_IN = 11;
 	private static final int AVERAGE_SELL_IN = 6;
 	private static final int BAD_SELL_IN = 0;
-
-    Backstage(String name, int sellIn, int quality) {
+	
+	public Backstage(String name, int sellIn, int quality) {
         super(name, sellIn, quality);
     }
 
-    @Override
-    void updateItem() {
+    public void itemUpdate() {
         this.addQuality();
     	if (sellIn < GOOD_SELL_IN) {
     		this.addQuality();

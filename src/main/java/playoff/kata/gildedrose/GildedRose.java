@@ -19,7 +19,15 @@ class GildedRose {
 
     public void updateQuality() {
         for (Item item : items) {
-        	item.updateItem();
+//        	itemUpdater(item).itemUpdate();
+        	item.itemUpdate();
         }
     }
+
+	private itemUpdater itemUpdater(Item item) {
+		// TODO Auto-generated method stub
+//		return null;
+		return itemUpdater(item);
+//		return new itemUpdaterFactory(item).itemUpdater(item);
+	}
 }

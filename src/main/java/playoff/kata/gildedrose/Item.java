@@ -20,51 +20,33 @@ public class Item {
         return this.name + ", " + this.sellIn + ", " + this.quality;
     }
     
-//    void updateItem(){
-//    	addQuality();
-//    	reduceQuality();
-//    	reduceSellIn();
-//    	resetQuality();
-//    }
-    
-    
-    void updateItem() {
-    	AgedBrie Brie = new AgedBrie(name, quality, quality);
-    	Brie.updaterItem();
-    }
-    
-  
 
-//	@Override
-//	public void updaterItem() {
-//		// TODO Auto-generated method stub
-//		
-//	}
+    //----------------------------------------------  
     
+    public void itemUpdate() {
+		// TODO Auto-generated method stub
+	}
     
-    
-    protected void addQuality() {
+    //-------------------------------------------
+    public void addQuality() {
     	if (quality < GOOD_QUALITY) {
             quality += 1;
         }
     }
     
-    protected void reduceQuality() {
+    public void reduceQuality() {
     	if (quality > BAD_QUALITY) {
             quality -= 1;
         }
     }
     
-    protected void reduceSellIn() {
+    public void reduceSellIn() {
     	sellIn -= 1;
     }
     
-    protected void resetQuality() {
+    public void resetQuality() {
     	quality = 0;
     }
-    
-    
-    
     
     String getName() {
         return name;
@@ -77,5 +59,4 @@ public class Item {
     int getQuality() {
         return quality;
     }
-
 }
