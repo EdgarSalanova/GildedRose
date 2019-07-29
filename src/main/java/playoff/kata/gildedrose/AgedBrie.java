@@ -9,13 +9,12 @@ public class AgedBrie extends Item implements itemUpdater  {
 //    public AgedBrie(Item item) {
 //        this.item = item;
 //    }
-// sense extendre de item llavors les funicons de calcul han d'anar aqui.
 
     AgedBrie(String name, int sellIn, int quality) {
         super(name, sellIn, quality);
     }
 
-    @Override
+	@Override
 	public void itemUpdate() {
     	this.addQuality();
         this.reduceSellIn();

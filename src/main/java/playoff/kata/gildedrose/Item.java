@@ -21,13 +21,14 @@ public class Item {
     }
     
 
-    //----------------------------------------------  
+    //------------------------------------------- 
     
     public void itemUpdate() {
 		// TODO Auto-generated method stub
 	}
     
     //-------------------------------------------
+    
     public void addQuality() {
     	if (quality < GOOD_QUALITY) {
             quality += 1;
