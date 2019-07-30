@@ -14,6 +14,7 @@ public class itemUpdaterFactory {
     	}
     	
     	if(item.name.equals(BRIE)) {
+    		System.out.println("eeeeeeeeeeeeeeeeeeeeeeee");
     		return new AgedBrie(item.name, item.sellIn, item.quality);
     	}
     	

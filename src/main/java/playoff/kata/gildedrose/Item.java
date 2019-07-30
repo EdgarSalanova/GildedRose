@@ -31,6 +31,7 @@ public class Item {
     
     public void addQuality() {
     	if (quality < GOOD_QUALITY) {
+    		System.out.println("ddddddddddd");
             quality += 1;
         }
     }
