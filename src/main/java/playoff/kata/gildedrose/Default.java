@@ -8,7 +8,13 @@ class Default extends Item implements itemUpdater{
         super(name, sellIn, quality);
     }
 
-    public void itemUpdate() {
+    public Default(Item item) {
+    	super(name, sellIn, quality);
+    	this.itemUpdate();
+	}
+
+    @Override
+	public void itemUpdate() {
     	this.reduceSellIn();
     	this.reduceQuality();
     	if (sellIn < BAD_SELL_IN) {

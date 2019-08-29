@@ -5,12 +5,14 @@ class Backstage extends Item implements itemUpdater{
 	private static final int GOOD_SELL_IN = 11;
 	private static final int AVERAGE_SELL_IN = 6;
 	private static final int BAD_SELL_IN = 0;
-	
-	public Backstage(String name, int sellIn, int quality) {
-        super(name, sellIn, quality);
-    }
 
-    public void itemUpdate() {
+    public Backstage(Item item) {
+    	super(name, sellIn, quality);
+        this.itemUpdate();
+	}
+
+    @Override
+	public void itemUpdate() {
         this.addQuality();
     	if (sellIn < GOOD_SELL_IN) {
     		this.addQuality();

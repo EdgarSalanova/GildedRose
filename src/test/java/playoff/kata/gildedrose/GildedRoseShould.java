@@ -16,9 +16,10 @@ public class GildedRoseShould {
     public void testThatSellInValueIsDecreased() {
         Item whateverItem = new Item("whatever", 10, 0);
 
+        System.out.println("111111111111111111 test >"+whateverItem.sellIn);
         GildedRose gildedRose = new GildedRose(arrayWith(whateverItem));
         gildedRose.updateQuality();
-
+        System.out.println("bbbbbbbbbbbbbbbbbbbbbbb>"+whateverItem.sellIn);
         assertEquals(whateverItem.sellIn, 9);
     }
 
@@ -56,10 +57,10 @@ public class GildedRoseShould {
     public void testAgedBrieIncreasesQualityWithAge() {
         Item agedBrie = new Item("Aged Brie", 5, 1);
 
-        System.out.println("aaaaaaaaaaaaaaaaaaaaa>");
+//        System.out.println("111111111111111111 test >");
         GildedRose gildedRose = new GildedRose(arrayWith(agedBrie));
         gildedRose.updateQuality();
-        System.out.println("bbbbbbbbbbbbbbbbbbbbbbb>"+agedBrie.quality);
+//        System.out.println("bbbbbbbbbbbbbbbbbbbbbbb>"+agedBrie.quality);
         assertEquals(agedBrie.quality, 2);
     }
 

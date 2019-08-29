@@ -5,33 +5,24 @@ public class Item {
 	private static final int GOOD_QUALITY = 50;
 	private static final int BAD_QUALITY = 0;
 
-    public String name;
-    public int sellIn;
-    public int quality;
+    public static String name;
+    public static int sellIn;
+    public static int quality;
 
     public Item(String name, int sellIn, int quality) {
-        this.name = name;
-        this.sellIn = sellIn;
-        this.quality = quality;
+        Item.name = name;
+        Item.sellIn = sellIn;
+        Item.quality = quality;
     }
 
     @Override
     public String toString() {
-        return this.name + ", " + this.sellIn + ", " + this.quality;
+        return Item.name + ", " + Item.sellIn + ", " + Item.quality;
     }
     
-
-    //------------------------------------------- 
-    
-    public void itemUpdate() {
-		// TODO Auto-generated method stub
-	}
-    
-    //-------------------------------------------
     
     public void addQuality() {
     	if (quality < GOOD_QUALITY) {
-    		System.out.println("ddddddddddd");
             quality += 1;
         }
     }

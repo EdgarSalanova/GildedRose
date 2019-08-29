@@ -9,21 +9,22 @@ public class itemUpdaterFactory {
 
     public itemUpdater itemUpdater(Item item) {
     	
-    	if(item.name.equals(SULFURAS)) {
-    		return new Sulfuras(item.name, item.sellIn, item.quality);
+    	if(Item.name.equals(SULFURAS)) {
+    		return new Sulfuras(item);
     	}
     	
-    	if(item.name.equals(BRIE)) {
-    		System.out.println("eeeeeeeeeeeeeeeeeeeeeeee");
-    		return new AgedBrie(item.name, item.sellIn, item.quality);
+    	if(Item.name.equals(BRIE)) {
+//    		System.out.println("222222222222222222 factory BRIE case");
+    		return new AgedBrie(item);
     	}
     	
-    	if(item.name.equals(BACKSTAGE)) {
-    		return new Backstage(item.name, item.sellIn, item.quality);
+    	if(Item.name.equals(BACKSTAGE)) {
+    		return new Backstage(item);
     	}
     	
-    	if(item.name.equals(DEFAULT)) {
-    		return new Default(item.name, item.sellIn, item.quality);
+    	if(Item.name.equals(DEFAULT)) {
+    		System.out.println("222222222222222222 factory DEFAULT case");
+    		return new Default(item);
     	}
     	
     	return null;
